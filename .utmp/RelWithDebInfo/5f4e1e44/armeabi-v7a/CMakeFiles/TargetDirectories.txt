@@ -1,0 +1,5 @@
+D:/Jorge Luis Garcia Orbegoso/Programacion Multimedia/UF1/20240919_M08_WhackAMole__JLGOrbegoso/.utmp/RelWithDebInfo/5f4e1e44/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/Jorge Luis Garcia Orbegoso/Programacion Multimedia/UF1/20240919_M08_WhackAMole__JLGOrbegoso/.utmp/RelWithDebInfo/5f4e1e44/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+D:/Jorge Luis Garcia Orbegoso/Programacion Multimedia/UF1/20240919_M08_WhackAMole__JLGOrbegoso/.utmp/RelWithDebInfo/5f4e1e44/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+D:/Jorge Luis Garcia Orbegoso/Programacion Multimedia/UF1/20240919_M08_WhackAMole__JLGOrbegoso/.utmp/RelWithDebInfo/5f4e1e44/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+D:/Jorge Luis Garcia Orbegoso/Programacion Multimedia/UF1/20240919_M08_WhackAMole__JLGOrbegoso/.utmp/RelWithDebInfo/5f4e1e44/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir
