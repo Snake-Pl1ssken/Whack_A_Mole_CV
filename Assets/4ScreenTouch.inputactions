@@ -1,0 +1,34 @@
+{
+    "name": "4ScreenTouch",
+    "maps": [
+        {
+            "name": "ScreenTouch",
+            "id": "20f40dd1-8af5-48fe-8358-cafe0ac2cf28",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "a42d8436-43bb-458d-8c7d-fc55f76ad1df",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b6824d6e-6452-4d35-98e4-f49060ae4b9a",
+                    "path": "<Touchscreen>/touch*/Press",
+                    "interactions": "MultiTap(tapCount=4)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
