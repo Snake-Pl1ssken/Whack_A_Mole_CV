@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 388d9be7110e4da45b9c65d714aca46a
+guid: 5ef87a2acc9761447b021e7e76ff8ffc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4982231711980760452
-    second: Cartoon_green_texture_grass_0
+      213: -2671614733121999001
+    second: 12794604_10205674272562936_6192764005040761939_n_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cartoon_green_texture_grass_0
+      name: 12794604_10205674272562936_6192764005040761939_n_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 4167
-        height: 4167
+        width: 270
+        height: 270
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c7253baa7ae8bdab0800000000000000
-      internalID: -4982231711980760452
+      spriteID: 76f20971e848cead0800000000000000
+      internalID: -2671614733121999001
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Cartoon_green_texture_grass_0: -4982231711980760452
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,22 +1,25 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class fullScreen : MonoBehaviour
+public class FullscreenToggle : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject fotoAtrue;
+    [SerializeField] GameObject panelToHide;
+    private bool isFullscreen = false;
 
-    // Update is called once per frame
-    void Update()
+    public void ToggleFullscreen()
     {
-        
-    }
 
-    public void OnPointerClick(PointerEventData pointerEventData)
-    {
-        Screen.fullScreen = true;
+        if (isFullscreen)
+        {
+            panelToHide.SetActive(false);
+            fotoAtrue.SetActive(true);
+        }
+        else
+        {
+            panelToHide.SetActive(true);
+            fotoAtrue.SetActive(false);
+        }
+
+        isFullscreen = !isFullscreen;
     }
 }
