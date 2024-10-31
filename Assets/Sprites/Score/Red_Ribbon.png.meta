@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5ef87a2acc9761447b021e7e76ff8ffc
+guid: 1b83f9ecbd4f0f841a0e80134a6c8cea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2671614733121999001
-    second: 12794604_10205674272562936_6192764005040761939_n_0
+      213: 7202336812680856701
+    second: Red_Ribbon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 12794604_10205674272562936_6192764005040761939_n_0
+      name: Red_Ribbon_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 270
-        height: 270
+        width: 597
+        height: 123
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76f20971e848cead0800000000000000
-      internalID: -2671614733121999001
+      spriteID: d74cf88eb27d3f360800000000000000
+      internalID: 7202336812680856701
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      12794604_10205674272562936_6192764005040761939_n_0: -2671614733121999001
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
