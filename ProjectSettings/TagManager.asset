@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CornerCube
   - Mole
+  - Mole2
   layers:
   - Default
   - TransparentFX

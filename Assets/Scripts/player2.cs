@@ -1,10 +1,10 @@
 using UnityEngine;
 using TMPro;
 
-public class Player1 : MonoBehaviour
+public class player2 : MonoBehaviour
 {
-    [Header("Texto de puntuacion jugador 1")]
-    [SerializeField] TextMeshProUGUI puntuacion_1;
+    [Header("Texto de puntuacion jugador 2")]
+    [SerializeField] TextMeshProUGUI puntuacion_2;
 
     int puntuacion = 0;
 
@@ -26,10 +26,10 @@ public class Player1 : MonoBehaviour
 
             RaycastHit2D hit = Physics2D.Raycast(touchPosition, Vector2.zero);
 
-            if (hit.collider != null && hit.collider.CompareTag("Mole"))
+            if (hit.collider != null && hit.collider.CompareTag("Mole2"))
             {
                 puntuacion++;
-                puntuacion_1.text = "" + puntuacion;
+                puntuacion_2.text = "" + puntuacion;
             }
         }
     }
