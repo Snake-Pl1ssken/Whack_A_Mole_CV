@@ -6,30 +6,28 @@ public class GameLogic : MonoBehaviour
     private Camera mainCamera;
     private float requiredTouchDuration = 1f;
     private float touchTimer = 0f;
-    private GameObject[] cornerCubes; // Array para almacenar los cubos de las esquinas
-    private bool[] isCubeTouched;     // Array para verificar si cada cubo está tocado
+    public GameObject[] cornerCubes; 
+    private bool[] isCubeTouched;
+    public string SceneToGo;
 
     void Start()
     {
         mainCamera = Camera.main;
 
-        // Encontrar todos los cubos con la etiqueta "CornerCube" y almacenarlos en el array
         cornerCubes = GameObject.FindGameObjectsWithTag("CornerCube");
-        isCubeTouched = new bool[cornerCubes.Length]; // Inicializa el array de verificación
+        isCubeTouched = new bool[cornerCubes.Length]; 
     }
 
     void Update()
     {
-        int touchedCount = 0; // Contador para saber cuántos cubos están presionados
+        int touchedCount = 0; 
 
-        // Resetear el estado de los cubos en cada frame
         for (int i = 0; i < isCubeTouched.Length; i++)
         {
             isCubeTouched[i] = false;
             cornerCubes[i].GetComponent<MeshRenderer>().material.color = Color.white;
         }
 
-        // Detectar toques y actualizar el estado de los cubos tocados
         for (int i = 0; i < Input.touchCount; i++)
         {
             Touch touch = Input.GetTouch(i);
@@ -49,7 +47,6 @@ public class GameLogic : MonoBehaviour
             }
         }
 
-        // Contar cuántos cubos están siendo tocados
         for (int i = 0; i < isCubeTouched.Length; i++)
         {
             if (isCubeTouched[i])
@@ -58,20 +55,18 @@ public class GameLogic : MonoBehaviour
             }
         }
 
-        // Verificar si todos los cubos están tocados y empezar a contar
         if (touchedCount == cornerCubes.Length)
         {
             touchTimer += Time.deltaTime;
 
-            // Si han pasado los 3 segundos, cambiar de escena
             if (touchTimer >= requiredTouchDuration)
             {
-                SceneManager.LoadScene("MoleScene"); // Cambia "NombreDeTuEscena" por el nombre de la escena
+                requiredTouchDuration = 1f;
+                SceneManager.LoadScene(SceneToGo); 
             }
         }
         else
         {
-            // Reiniciar el temporizador si no están todos los cubos presionados
             touchTimer = 0f;
         }
     }
