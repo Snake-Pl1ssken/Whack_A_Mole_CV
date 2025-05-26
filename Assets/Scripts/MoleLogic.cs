@@ -8,9 +8,8 @@ public class MoleLogic : MonoBehaviour
     public float cuentaAtrasParaFin = 60;
     public TextMeshProUGUI textoDeCuentaAtras, marcadorPlayerB, marcadorPlayerA, cartelVictoria;
     int puntosPlayer1, puntosPlayer2 = 0;
-
-    public GameObject[] Jugador1Enemies;
-    public GameObject[] Jugador2Enemies;
+    public GameObject particulasPlayer1, particulasPlayer2;
+    public GameObject[] Jugador1Enemies, Jugador2Enemies;
 
     void Start()
     {
@@ -38,11 +37,13 @@ public class MoleLogic : MonoBehaviour
             {
                 cartelVictoria.enabled = true;
                 cartelVictoria.text = "PLAYER 1 WINS";
+                particulasPlayer1.SetActive(true);
             }
             else if (puntosPlayer2 > puntosPlayer1)
             {
                 cartelVictoria.enabled = true;
                 cartelVictoria.text = "PLAYER 2 WINS";
+                particulasPlayer2.SetActive(true);
             }
             else if (puntosPlayer1 == puntosPlayer2)
             {
@@ -142,7 +143,7 @@ public class MoleLogic : MonoBehaviour
     IEnumerator RestartLevel()
     {
         yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene("WackAMole");
+        SceneManager.LoadScene("MoleScene");
     }
 
     private IEnumerator SpawnEnemiesPlayer1()
