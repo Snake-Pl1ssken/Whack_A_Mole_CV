@@ -3362,14 +3362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d61b86fc8df69b4da0528004169866c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-=======
-  cornerCubes:
-  - {fileID: 1131180900}
-  - {fileID: 568181608}
-  - {fileID: 1109959586}
-  - {fileID: 1649317046}
->>>>>>> d757e5176c332952bed4ca5edbb872ab91d3151b
   SceneToGo: MoleScene
 --- !u!4 &1648473594
 Transform:
