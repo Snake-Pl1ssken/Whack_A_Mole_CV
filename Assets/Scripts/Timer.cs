@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class Timer : MonoBehaviour
         }
         else if (timeCount == 0 || timer <= 0)
         {
-            Application.Quit(); 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

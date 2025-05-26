@@ -6,7 +6,11 @@ public class GameLogic : MonoBehaviour
     private Camera mainCamera;
     private float requiredTouchDuration = 1f;
     private float touchTimer = 0f;
+<<<<<<< HEAD
     private GameObject[] cornerCubes; 
+=======
+    public GameObject[] cornerCubes; 
+>>>>>>> d757e5176c332952bed4ca5edbb872ab91d3151b
     private bool[] isCubeTouched;
     public string SceneToGo;
 
@@ -61,6 +65,10 @@ public class GameLogic : MonoBehaviour
 
             if (touchTimer >= requiredTouchDuration)
             {
+<<<<<<< HEAD
+=======
+                requiredTouchDuration = 1f;
+>>>>>>> d757e5176c332952bed4ca5edbb872ab91d3151b
                 SceneManager.LoadScene(SceneToGo); 
             }
         }
