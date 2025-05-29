@@ -6340,6 +6340,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneToGo: MainScene
+  particulasAcierto: {fileID: 2424663597865095825, guid: bbe131a322020aa48913a26707904e85, type: 3}
+  particulasNoAcierto: {fileID: 8656365879632902592, guid: 2cd6026865bd45c44a9e417268057a24, type: 3}
 --- !u!114 &1360367000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7229,7 +7231,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0, b: 0, a: 1}
+      maxColor: {r: 0.0473938, g: 0, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
