@@ -18,22 +18,37 @@ public class EnemyLogic : MonoBehaviour
         fueGolpeado = false;
         isActive = true;
 
-        float elapsed = 0f;
-        while (elapsed < showDuration)
-        {
-            golpeable = true;
-            anim.SetBool("taFuera", true);
-            elapsed += Time.deltaTime;
-        }
-        yield return new WaitForSeconds(elapsed);
+        //float elapsed = 0f;
+        //while (elapsed < showDuration)
+        //{
+        //    golpeable = true;
+        //    anim.SetBool("taFuera", true);
+        //    anim.SetTrigger("Salete");
+        //    elapsed += Time.deltaTime;
+        //}
+        //yield return new WaitForSeconds(elapsed);
 
-        elapsed = 0f;
-        while (elapsed < showDuration)
-        {
-            anim.SetBool("taFuera", false);
-            golpeable = false;
-            elapsed += Time.deltaTime;
-        }
+
+        //elapsed = 0f;
+        //while (elapsed < showDuration)
+        //{
+        //    anim.SetBool("taFuera", false);
+        //    //anim.SetTrigger("taFueraTrigger");
+        //    golpeable = false;
+        //    elapsed += Time.deltaTime;
+        //}
+        //isActive = false;
+
+        golpeable = true;
+        anim.SetTrigger("Salete");
+        anim.ResetTrigger("Vuelve");
+        anim.ResetTrigger("golpeTrigger");
+
+        yield return new WaitForSeconds(showDuration);
+
+        golpeable = false;
+        anim.SetTrigger("Vuelve");
+
         isActive = false;
     }
 
@@ -41,7 +56,8 @@ public class EnemyLogic : MonoBehaviour
     {
         if (golpeable)
         {
-            anim.SetBool("toyGolpeado", true);
+            anim.SetTrigger("golpeTrigger");
+            //anim.SetTrigger("taGolpeadoTrigger");
             fueGolpeado = true;
             golpeable = false;
         }

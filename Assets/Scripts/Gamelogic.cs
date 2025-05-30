@@ -10,6 +10,7 @@ public class GameLogic : MonoBehaviour
     private bool[] isCubeTouched;
     public string SceneToGo;
     public GameObject particulasAcierto, particulasNoAcierto;
+    bool called = false;
 
     void Start()
     {
@@ -21,27 +22,37 @@ public class GameLogic : MonoBehaviour
 
     void Update()
     {
+        if (called)
+        {
+            Debug.Log("Llamada la funcion Destroy this");
+        }
+
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            Vector2 worldPos = mainCamera.ScreenToWorldPoint(touch.position);
-
-            RaycastHit2D hit = Physics2D.Raycast(worldPos, Vector2.zero);
-
-            if (hit.collider != null)
+            if (touch.phase == TouchPhase.Began)
             {
-                if (hit.collider.CompareTag("Mole") || hit.collider.CompareTag("Mole2"))
+                Vector2 worldPos = mainCamera.ScreenToWorldPoint(touch.position);
+
+                RaycastHit2D hit = Physics2D.Raycast(worldPos, Vector2.zero);
+
+                if (hit.collider != null)
                 {
-                    Instantiate(particulasAcierto, hit.point, Quaternion.identity);
+                    if (hit.collider.CompareTag("Mole") || hit.collider.CompareTag("Mole2"))
+                    {
+                        Instantiate(particulasAcierto, hit.point, Quaternion.identity);
+                    }
+                    else
+                    {
+                        Instantiate(particulasNoAcierto, hit.point, Quaternion.identity);
+                        Invoke("DestroyThis", 2f);
+                    }
                 }
                 else
                 {
-                    Instantiate(particulasNoAcierto, hit.point, Quaternion.identity);
+                    Instantiate(particulasNoAcierto, worldPos, Quaternion.identity);
+                    Invoke("DestroyThis", 2f);
                 }
-            }
-            else
-            {
-                Instantiate(particulasNoAcierto, worldPos, Quaternion.identity);
             }
         }
 
@@ -93,5 +104,12 @@ public class GameLogic : MonoBehaviour
         {
             touchTimer = 0f;
         }
+    }
+
+    void DestroyThis()
+    {
+        called = true;
+        DestroyImmediate(particulasAcierto);
+        DestroyImmediate(particulasNoAcierto);
     }
 }

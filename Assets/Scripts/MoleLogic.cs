@@ -153,21 +153,28 @@ public class MoleLogic : MonoBehaviour
             bool enemyFound = false;
             EnemyLogic enemyScript = null;
 
-            while (!enemyFound)
-            {
-                int randomMoleIndex = Random.Range(0, Jugador1Enemies.Length);
-                GameObject EnemisInPlayer1side = Jugador1Enemies[randomMoleIndex];
+            bool haySitioParaUnEnemigo = false;
+            for (int i = 0; !haySitioParaUnEnemigo && (i < Jugador1Enemies.Length); i++)
+                { haySitioParaUnEnemigo = !Jugador1Enemies[i].GetComponent<EnemyLogic>().isActive; }
 
-                enemyScript = EnemisInPlayer1side.GetComponent<EnemyLogic>();
-
-                if (!enemyScript.isActive)
+            if (haySitioParaUnEnemigo)
+            { 
+                while (!enemyFound)
                 {
-                    enemyFound = true;
-                }
-            }
+                    int randomMoleIndex = Random.Range(0, Jugador1Enemies.Length);
+                    GameObject EnemisInPlayer1side = Jugador1Enemies[randomMoleIndex];
 
-            StartCoroutine(enemyScript.ShowHide());
-            yield return new WaitForSeconds(enemyScript.duration);
+                    enemyScript = EnemisInPlayer1side.GetComponent<EnemyLogic>();
+
+                    if (!enemyScript.isActive)
+                    {
+                        enemyFound = true;
+                    }
+                }
+
+                StartCoroutine(enemyScript.ShowHide());
+                yield return new WaitForSeconds(enemyScript.duration);
+            }
         }
     }
     private IEnumerator SpawnEnemiesPlayer2()
@@ -177,22 +184,28 @@ public class MoleLogic : MonoBehaviour
             bool enemyFound = false;
             EnemyLogic enemyScript = null;
 
-            while (!enemyFound)
-            {
-                int randomMoleIndex = Random.Range(0, Jugador1Enemies.Length);
-                GameObject EnemisInPlayer2side = Jugador2Enemies[randomMoleIndex];
+            bool haySitioParaUnEnemigo = false;
+            for (int i = 0; !haySitioParaUnEnemigo && (i < Jugador2Enemies.Length); i++)
+            { haySitioParaUnEnemigo = !Jugador2Enemies[i].GetComponent<EnemyLogic>().isActive; }
 
-                enemyScript = EnemisInPlayer2side.GetComponent<EnemyLogic>();
-
-                if (!enemyScript.isActive)
+            if (haySitioParaUnEnemigo)
+            { 
+                while (!enemyFound)
                 {
-                    enemyFound = true;
+                    int randomMoleIndex = Random.Range(0, Jugador1Enemies.Length);
+                    GameObject EnemisInPlayer2side = Jugador2Enemies[randomMoleIndex];
+
+                    enemyScript = EnemisInPlayer2side.GetComponent<EnemyLogic>();
+
+                    if (!enemyScript.isActive)
+                    {
+                        enemyFound = true;
+                    }
                 }
+
+                StartCoroutine(enemyScript.ShowHide());
+                yield return new WaitForSeconds(enemyScript.duration);
             }
-
-            StartCoroutine(enemyScript.ShowHide());
-            yield return new WaitForSeconds(enemyScript.duration);
-
         }
     }
 }
