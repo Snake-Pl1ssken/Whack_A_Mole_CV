@@ -10,7 +10,6 @@ public class GameLogic : MonoBehaviour
     private bool[] isCubeTouched;
     public string SceneToGo;
     public GameObject particulasAcierto, particulasNoAcierto;
-    bool called = false;
 
     void Start()
     {
@@ -22,10 +21,6 @@ public class GameLogic : MonoBehaviour
 
     void Update()
     {
-        if (called)
-        {
-            Debug.Log("Llamada la funcion Destroy this");
-        }
 
         if (Input.touchCount > 0)
         {
@@ -45,13 +40,11 @@ public class GameLogic : MonoBehaviour
                     else
                     {
                         Instantiate(particulasNoAcierto, hit.point, Quaternion.identity);
-                        Invoke("DestroyThis", 2f);
                     }
                 }
                 else
                 {
                     Instantiate(particulasNoAcierto, worldPos, Quaternion.identity);
-                    Invoke("DestroyThis", 2f);
                 }
             }
         }
@@ -106,10 +99,4 @@ public class GameLogic : MonoBehaviour
         }
     }
 
-    void DestroyThis()
-    {
-        called = true;
-        DestroyImmediate(particulasAcierto);
-        DestroyImmediate(particulasNoAcierto);
-    }
 }

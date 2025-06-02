@@ -8,7 +8,7 @@ public class MoleLogic : MonoBehaviour
     public float cuentaAtrasParaFin = 60;
     public TextMeshProUGUI textoDeCuentaAtras, marcadorPlayerB, marcadorPlayerA, cartelVictoria;
     int puntosPlayer1, puntosPlayer2 = 0;
-    public GameObject particulasPlayer1, particulasPlayer2;
+    public GameObject particulasPlayer1, particulasPlayer2, player1Wins, player2Wins;
     public GameObject[] Jugador1Enemies, Jugador2Enemies;
 
     void Start()
@@ -35,14 +35,12 @@ public class MoleLogic : MonoBehaviour
 
             if (puntosPlayer1 > puntosPlayer2)
             {
-                cartelVictoria.enabled = true;
-                cartelVictoria.text = "PLAYER 1 WINS";
+                player1Wins.SetActive(true);
                 particulasPlayer1.SetActive(true);
             }
             else if (puntosPlayer2 > puntosPlayer1)
             {
-                cartelVictoria.enabled = true;
-                cartelVictoria.text = "PLAYER 2 WINS";
+                player2Wins.SetActive(true); 
                 particulasPlayer2.SetActive(true);
             }
             else if (puntosPlayer1 == puntosPlayer2)
@@ -170,6 +168,7 @@ public class MoleLogic : MonoBehaviour
 
                     if (!enemyScript.isActive)
                     {
+                        enemyScript.Init();
                         enemyFound = true;
                     }
                 }

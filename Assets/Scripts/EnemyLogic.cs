@@ -8,11 +8,22 @@ public class EnemyLogic : MonoBehaviour
     public float showDuration, duration;
     Animator anim;
 
-    void Start()
+    //void Start()
+    //{
+    //    anim = GetComponentInChildren<Animator>();
+    //    if (anim == null)
+    //    {
+    //        Debug.LogError($"{name} no tiene Animator en sus hijos.");
+    //    }
+    //}
+    public void Init()
     {
         anim = GetComponentInChildren<Animator>();
+        if (anim == null)
+        {
+            Debug.LogError($"{name} no tiene Animator en sus hijos.");
+        }
     }
-
     public IEnumerator ShowHide()
     {
         fueGolpeado = false;
