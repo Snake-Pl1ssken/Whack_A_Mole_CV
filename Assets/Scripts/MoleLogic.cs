@@ -13,8 +13,8 @@ public class MoleLogic : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SpawnEnemiesPlayer1());
-        StartCoroutine(SpawnEnemiesPlayer2());
+        StartCoroutine(SpawnEnemies(Jugador1Enemies));
+        StartCoroutine(SpawnEnemies(Jugador2Enemies));
         cartelVictoria.text = "";
     }
 
@@ -146,7 +146,7 @@ public class MoleLogic : MonoBehaviour
         SceneManager.LoadScene("MoleScene");
     }
 
-    private IEnumerator SpawnEnemiesPlayer1()
+    private IEnumerator SpawnEnemies(GameObject[] enemies)
     {
         while (cuentaAtrasParaFin > 0)
         {
@@ -154,17 +154,19 @@ public class MoleLogic : MonoBehaviour
             EnemyLogic enemyScript = null;
 
             bool haySitioParaUnEnemigo = false;
-            for (int i = 0; !haySitioParaUnEnemigo && (i < Jugador1Enemies.Length); i++)
-                { haySitioParaUnEnemigo = !Jugador1Enemies[i].GetComponent<EnemyLogic>().isActive; }
+            for (int i = 0; !haySitioParaUnEnemigo && (i < enemies.Length); i++)
+                { haySitioParaUnEnemigo = !enemies[i].GetComponent<EnemyLogic>().isActive; }
 
+
+            float yieldTime = 0.1f;
             if (haySitioParaUnEnemigo)
             { 
                 while (!enemyFound)
                 {
-                    int randomMoleIndex = Random.Range(0, Jugador1Enemies.Length);
-                    GameObject EnemisInPlayer1side = Jugador1Enemies[randomMoleIndex];
+                    int randomMoleIndex = Random.Range(0, enemies.Length);
+                    GameObject enemy = enemies[randomMoleIndex];
 
-                    enemyScript = EnemisInPlayer1side.GetComponent<EnemyLogic>();
+                    enemyScript = enemy.GetComponent<EnemyLogic>();
 
                     if (!enemyScript.isActive)
                     {
@@ -173,39 +175,40 @@ public class MoleLogic : MonoBehaviour
                 }
 
                 StartCoroutine(enemyScript.ShowHide());
-                yield return new WaitForSeconds(enemyScript.duration);
+                yieldTime = enemyScript.duration;
             }
+            yield return new WaitForSeconds(yieldTime);
         }
     }
-    private IEnumerator SpawnEnemiesPlayer2()
-    {
-        while (cuentaAtrasParaFin > 0)
-        {
-            bool enemyFound = false;
-            EnemyLogic enemyScript = null;
+    //private IEnumerator SpawnEnemiesPlayer2()
+    //{
+    //    while (cuentaAtrasParaFin > 0)
+    //    {
+    //        bool enemyFound = false;
+    //        EnemyLogic enemyScript = null;
 
-            bool haySitioParaUnEnemigo = false;
-            for (int i = 0; !haySitioParaUnEnemigo && (i < Jugador2Enemies.Length); i++)
-            { haySitioParaUnEnemigo = !Jugador2Enemies[i].GetComponent<EnemyLogic>().isActive; }
+    //        bool haySitioParaUnEnemigo = false;
+    //        for (int i = 0; !haySitioParaUnEnemigo && (i < Jugador2Enemies.Length); i++)
+    //        { haySitioParaUnEnemigo = !Jugador2Enemies[i].GetComponent<EnemyLogic>().isActive; }
 
-            if (haySitioParaUnEnemigo)
-            { 
-                while (!enemyFound)
-                {
-                    int randomMoleIndex = Random.Range(0, Jugador1Enemies.Length);
-                    GameObject EnemisInPlayer2side = Jugador2Enemies[randomMoleIndex];
+    //        if (haySitioParaUnEnemigo)
+    //        { 
+    //            while (!enemyFound)
+    //            {
+    //                int randomMoleIndex = Random.Range(0, Jugador1Enemies.Length);
+    //                GameObject EnemisInPlayer2side = Jugador2Enemies[randomMoleIndex];
 
-                    enemyScript = EnemisInPlayer2side.GetComponent<EnemyLogic>();
+    //                enemyScript = EnemisInPlayer2side.GetComponent<EnemyLogic>();
 
-                    if (!enemyScript.isActive)
-                    {
-                        enemyFound = true;
-                    }
-                }
+    //                if (!enemyScript.isActive)
+    //                {
+    //                    enemyFound = true;
+    //                }
+    //            }
 
-                StartCoroutine(enemyScript.ShowHide());
-                yield return new WaitForSeconds(enemyScript.duration);
-            }
-        }
-    }
+    //            StartCoroutine(enemyScript.ShowHide());
+    //            yield return new WaitForSeconds(enemyScript.duration);
+    //        }
+    //    }
+    //}
 }
