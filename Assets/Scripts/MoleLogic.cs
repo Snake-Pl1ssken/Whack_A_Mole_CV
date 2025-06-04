@@ -8,7 +8,7 @@ public class MoleLogic : MonoBehaviour
     public float cuentaAtrasParaFin = 60;
     public TextMeshProUGUI textoDeCuentaAtras, marcadorPlayerB, marcadorPlayerA, cartelVictoria;
     int puntosPlayer1, puntosPlayer2 = 0;
-    public GameObject particulasPlayer1, particulasPlayer2, player1Wins, player2Wins;
+    public GameObject particulasPlayer1, particulasPlayer2, player1Wins, player2Wins, losePlayer1, losePlayer2;
     public GameObject[] Jugador1Enemies, Jugador2Enemies;
 
     void Start()
@@ -37,11 +37,13 @@ public class MoleLogic : MonoBehaviour
             {
                 player1Wins.SetActive(true);
                 particulasPlayer1.SetActive(true);
+                losePlayer2.SetActive(true);
             }
             else if (puntosPlayer2 > puntosPlayer1)
             {
                 player2Wins.SetActive(true); 
                 particulasPlayer2.SetActive(true);
+                losePlayer1.SetActive(true);
             }
             else if (puntosPlayer1 == puntosPlayer2)
             {
